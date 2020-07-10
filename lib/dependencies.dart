@@ -2,5 +2,6 @@
 export 'package:flutter/material.dart';
 
 //local dependencies
-export 'package:flutter_boilerplate/main.dart';
-export 'package:flutter_boilerplate/internal/colors.dart';
+export 'package:bmicalculator/main.dart';
+export 'package:bmicalculator/internal/colors.dart';
+export 'package:bmicalculator/internal/mainLayout.dart';

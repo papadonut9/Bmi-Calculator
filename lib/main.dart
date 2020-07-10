@@ -1,13 +1,18 @@
-import 'package:flutter/material.dart';
+import 'package:bmicalculator/dependencies.dart';
 
-void main() => runApp(
-      MaterialApp(
-        home: null,
-      ),
+void main() => runApp(BMICalculator());
+
+class BMICalculator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // theme: ThemeData(
+      //   primaryColor: Color(0xff04040c),
+      //   accentColor: Colors.purple,
+      //   backgroundColor: Color(0xff04040c),
+        
+      // ),
+      home: MainLayout(),
     );
-
-//things to change after cloning this repo
-// 1. all 3 androidmanifest.xml
-// 2. gradle.build
-// 3. mainactivity.kt
-// 4. pubspec.yaml
+  }
+}
