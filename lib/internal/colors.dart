@@ -1,3 +1,3 @@
 // initialise your colors here as constants
 
-import 'package:flutter_boilerplate/dependencies.dart';
+// import 'package:bmicalculator/dependencies.dart';

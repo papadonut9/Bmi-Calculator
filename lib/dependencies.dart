@@ -5,3 +5,4 @@ export 'package:flutter/material.dart';
 export 'package:bmicalculator/main.dart';
 export 'package:bmicalculator/internal/colors.dart';
 export 'package:bmicalculator/internal/mainLayout.dart';
+export 'package:bmicalculator/internal/theme.dart';
