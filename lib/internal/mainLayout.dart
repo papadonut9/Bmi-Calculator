@@ -1,3 +1,4 @@
+
 import '../dependencies.dart';
 
 class MainLayout extends StatefulWidget {
@@ -5,76 +6,145 @@ class MainLayout extends StatefulWidget {
   _MainLayoutState createState() => _MainLayoutState();
 }
 
+enum Gender {
+  male,
+  female,
+}
+
 class _MainLayoutState extends State<MainLayout> {
+  Gender genderSelected;
+  int height = 69;
+  String strHeight;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('BMI CALCULATOR'),
+        title: Text(
+          'B M I    C A L C U L A T O R',
+          style: kLabelTextStyle,
+        ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
+            // Gender selection
             child: Row(
               children: <Widget>[
-                Expanded(
-                  child: SkeletalCard(color: Color(0xff1d1e33)),
-                ),
+                // male button
                 Expanded(
                   child: SkeletalCard(
-                    color: Color(0xff1d1e33),
+                    onPressed: () {
+                      setState(() {
+                        genderSelected = Gender.male;
+                      });
+                    },
+                    // ternary operators used. see: https://rb.gy/17mbqa
+                    color: genderSelected == Gender.male
+                        ? kActiveColor
+                        : kInactiveColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      string: 'M A L E',
+                    ),
+                  ),
+                ),
+                // female button
+                Expanded(
+                  child: SkeletalCard(
+                    onPressed: () {
+                      setState(() {
+                        genderSelected = Gender.female;
+                      });
+                    },
+                    // ternary operators used. see: https://rb.gy/17mbqa
+                    color: genderSelected == Gender.female
+                        ? kActiveColor
+                        : kInactiveColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      string: 'F E M A L E',
+                    ),
                   ),
                 ),
               ],
             ),
           ),
+          // height selection
           Expanded(
-              child: SkeletalCard(
-            color: Color(0xff1d1e33),
-          )),
+            child: SkeletalCard(
+              color: kActiveColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'H E I G H T',
+                    style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    textBaseline: TextBaseline.alphabetic,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children: <Widget>[
+                      Text(
+                        height.toString(),
+                        style: kNumTextStyle,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        'cm',
+                        style: kLabelTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: minHeight.toDouble(),
+                    max: maxHeight.toDouble(),
+                    divisions: 1750,
+                    activeColor: Color(0xffeb1555),
+                    inactiveColor: Color(0xff8d8e98),
+                    onChanged: (double newHeight){
+                      setState(() {
+                        height = newHeight.round();
+                      });
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
           Expanded(
+            // Age and weight selection
             child: Row(
               children: <Widget>[
+                // weight
                 Expanded(
                   child: SkeletalCard(
-                    color: Color(0xff1d1e33),
+                    color: kActiveColor,
                   ),
                 ),
+                // age
                 Expanded(
                   child: SkeletalCard(
-                    color: Color(0xff1d1e33),
+                    color: kActiveColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: Color(0xffeb1555),
-            margin: EdgeInsets.only(top:10),
+            color: kBottombuttonColor,
+            margin: EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: 90,
+            height: kBottomButtonHeight,
           ),
         ],
       ),
-    );
-  }
-}
-
-class SkeletalCard extends StatelessWidget {
-  // ignore: non_constant_identifier_names
-  final Color color;
-  // ignore: non_constant_identifier_names
-  SkeletalCard({@required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      margin: EdgeInsets.all(10),
     );
   }
 }
