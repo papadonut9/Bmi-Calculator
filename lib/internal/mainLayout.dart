@@ -13,7 +13,7 @@ enum Gender {
 
 class _MainLayoutState extends State<MainLayout> {
   Gender genderSelected;
-  int height = 69;
+  int height = 135;
   String strHeight;
   
   @override
@@ -105,7 +105,7 @@ class _MainLayoutState extends State<MainLayout> {
                     value: height.toDouble(),
                     min: minHeight.toDouble(),
                     max: maxHeight.toDouble(),
-                    divisions: 1750,
+                    // divisions: 1750,
                     activeColor: Color(0xffeb1555),
                     inactiveColor: Color(0xff8d8e98),
                     onChanged: (double newHeight){
