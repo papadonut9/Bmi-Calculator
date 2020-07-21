@@ -1,4 +1,3 @@
-
 import '../dependencies.dart';
 
 class MainLayout extends StatefulWidget {
@@ -15,7 +14,9 @@ class _MainLayoutState extends State<MainLayout> {
   Gender genderSelected;
   int height = 135;
   String strHeight;
-  
+  int weight = 69;
+  int age = 21;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,18 +102,29 @@ class _MainLayoutState extends State<MainLayout> {
                       ),
                     ],
                   ),
-                  Slider(
-                    value: height.toDouble(),
-                    min: minHeight.toDouble(),
-                    max: maxHeight.toDouble(),
-                    // divisions: 1750,
-                    activeColor: Color(0xffeb1555),
-                    inactiveColor: Color(0xff8d8e98),
-                    onChanged: (double newHeight){
-                      setState(() {
-                        height = newHeight.round();
-                      });
-                    },
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: kSliderActive,
+                      inactiveTrackColor: kSliderInactive,
+                      thumbColor: kSliderThumb,
+                      overlayColor: kSliderOverlay,
+                      thumbShape: RoundSliderThumbShape(
+                        enabledThumbRadius: 15,
+                      ),
+                      overlayShape: RoundSliderThumbShape(
+                        enabledThumbRadius: 30,
+                      ),
+                    ),
+                    child: Slider(
+                      value: height.toDouble(),
+                      min: minHeight.toDouble(),
+                      max: maxHeight.toDouble(),
+                      onChanged: (double newHeight) {
+                        setState(() {
+                          height = newHeight.round();
+                        });
+                      },
+                    ),
                   )
                 ],
               ),
@@ -126,22 +138,133 @@ class _MainLayoutState extends State<MainLayout> {
                 Expanded(
                   child: SkeletalCard(
                     color: kActiveColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'W E I G H T',
+                          style: kLabelTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          textBaseline: TextBaseline.alphabetic,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          children: <Widget>[
+                            Text(
+                              weight.toString(),
+                              style: kNumTextStyle,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'kg',
+                              style: kLabelTextStyle,
+                            ),
+                          ],
+                        ),
+                        // Weight Section
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundBtn(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            RoundBtn(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                // age
+                // AGE
                 Expanded(
                   child: SkeletalCard(
                     color: kActiveColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'A G E',
+                          style: kLabelTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              age.toString(),
+                              style: kNumTextStyle,
+                            ),
+                          ],
+                        ),
+                        // Weight Section
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundBtn(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            RoundBtn(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: kBottombuttonColor,
-            margin: EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomButtonHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(),
+                ),
+              );
+            },
+            child: Container(
+              color: kBottomButtonColor,
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: kBottomButtonHeight,
+              child: Center(
+                child: Text(
+                  'C A L C U L A T E  B M I',
+                  style: kBottomButtonTextStyle,
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -149,3 +272,26 @@ class _MainLayoutState extends State<MainLayout> {
   }
 }
 // Color(0xff1d1e33)
+
+class RoundBtn extends StatelessWidget {
+  final IconData icon;
+  final Function onPressed;
+
+  RoundBtn({@required this.icon, @required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      child: Icon(icon),
+      elevation: 0,
+      disabledElevation: 0,
+      constraints: BoxConstraints.tightFor(
+        width: 56,
+        height: 56,
+      ),
+      shape: CircleBorder(),
+      fillColor: kFloatingButtonBG,
+    );
+  }
+}

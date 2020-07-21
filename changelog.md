@@ -14,3 +14,9 @@
 - **v0.0.3_build-2(Alpha)**
     - UI Elements for Gender Selection and slider designed. 
     - Slider Function is still quite unstable, so the label acts finnicky at times. You've been warned.
+
+- **v0.1.0_build-4(Beta)**
+    - Completed UI for main screen.
+    - Created Route for second screen.
+    - Route points to a sample second screen.
+    - Improved code refactoring for easy access.
