@@ -9,9 +9,10 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:bmicalculator/main.dart';
 export 'package:bmicalculator/internal/constants.dart';
 export 'package:bmicalculator/internal/iconContent.dart';
+export 'package:bmicalculator/internal/roundBtn.dart';
 export 'package:bmicalculator/internal/skeletalCard.dart';
 export 'package:bmicalculator/internal/theme.dart';
 
 // App Screens
-export 'package:bmicalculator/internal/mainLayout.dart';
-export 'package:bmicalculator/internal/result_page.dart';
+export 'package:bmicalculator/screens/homePage.dart';
+export 'package:bmicalculator/screens/resultPage.dart';

@@ -40,3 +40,26 @@ const kFloatingButtonBG = Color(0xff4c4f5e);
 
 const maxHeight = 220;
 const minHeight = 120;
+
+// Results Styling
+final kTitleStyle = GoogleFonts.montserrat(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+final kResultTextStyle = GoogleFonts.montserrat(
+  color: Color(0xff24d876),
+  fontSize: 22,
+  fontWeight: FontWeight.bold,
+);
+
+final kBMITextStyle = GoogleFonts.montserrat(
+  fontSize: 100,
+  fontWeight: FontWeight.bold,
+);
+
+final kPostBMIMessageTextStyle = GoogleFonts.montserrat(
+  fontSize: 22,
+  fontWeight: FontWeight.bold,
+  
+);

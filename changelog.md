@@ -20,3 +20,7 @@
     - Created Route for second screen.
     - Route points to a sample second screen.
     - Improved code refactoring for easy access.
+
+- **v0.2.0_build-5(Beta)**
+    - Cleared one major glitch in which the Height number literally went out of screen space when sliding rapidly on the height slider.
+    - Everything is pretty much designed. Only the main logic for app remains and the values are hard coded as of this version.
