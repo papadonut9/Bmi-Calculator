@@ -30,3 +30,6 @@
     -Improved refactoring.
     -Logic for calculation created, just need to call it. Will do in the next update.
     -Since the app will look as same as last version without any update, I won't be uploading a release for this version. 
+
+- **v0.3.0_build-7(Beta)**
+    - There is no change for this build. I mislabelled the last version. This version was misidentified as ```v0.2.1_build-6```.
