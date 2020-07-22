@@ -1,6 +1,17 @@
 import 'package:bmicalculator/dependencies.dart';
 
 class ResultPage extends StatelessWidget {
+  
+  final String bmi;
+  final String message;
+  final String interpretation;
+  
+  ResultPage({
+    @required this.bmi,
+    @required this.message,
+    @required this.interpretation,
+  });
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,15 +45,15 @@ class ResultPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      'N O R M A L',
+                      message,
                       style: kResultTextStyle,
                     ),
                     Text(
-                      '22.7',
+                      bmi,
                       style: kBMITextStyle,
                     ),
                     Text(
-                      'Well, your weight is way proper for your age and height. \n Keep it on!!',
+                      interpretation,
                       textAlign: TextAlign.center,
                       style: kPostBMIMessageTextStyle,
                     ),
@@ -51,7 +62,7 @@ class ResultPage extends StatelessWidget {
               ),
             ),
             BottomButton(
-              onTap: (){
+              onTap: () {
                 Navigator.pop(context);
               },
               buttonText: 'R E C A L C U L A T E  B M I',

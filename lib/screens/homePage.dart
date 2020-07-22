@@ -12,10 +12,10 @@ enum Gender {
 
 class _MainLayoutState extends State<MainLayout> {
   Gender genderSelected;
-  int height = 135;
+  int height = minHeight;
   String strHeight;
-  int weight = 69;
-  int age = 21;
+  int weight = 22;
+  int age = 9;
 
   @override
   Widget build(BuildContext context) {
@@ -249,19 +249,29 @@ class _MainLayoutState extends State<MainLayout> {
             BottomButton(
               buttonText: 'C A L C U L A T E  B M I',
               onTap: () {
+                // calculation logic
+                BMI bmi = BMI(
+                  height: height,
+                  weight: weight,
+                );
+
                 // For unnamed routes.
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => ResultPage(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                      bmi: bmi.calculate(),
+                      message: bmi.getResult(),
+                      interpretation: bmi.interpretation(),
+                    ),
+                  ),
+                );
 
                 // For Map defined name routes
-                Navigator.pushNamed(
-                  context,
-                  '/result',
-                );
+                // Navigator.pushNamed(
+                //   context,
+                //   '/result',
+                // );
               },
             ),
           ],

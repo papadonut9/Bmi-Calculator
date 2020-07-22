@@ -1,8 +1,8 @@
 import 'package:bmicalculator/dependencies.dart';
 
 class BMI {
-  final weight;
-  final height;
+  final int weight;
+  final int height;
 
   BMI({this.height, this.weight});
 

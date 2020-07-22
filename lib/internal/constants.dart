@@ -21,7 +21,7 @@ final kBottomButtonTextStyle = GoogleFonts.montserrat(
 );
 
 final kNumTextStyle = GoogleFonts.montserrat(
-  fontSize: 60,
+  fontSize: 50,
   fontWeight: FontWeight.w800,
 );
 
