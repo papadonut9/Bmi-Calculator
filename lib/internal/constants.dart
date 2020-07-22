@@ -2,11 +2,11 @@
 import 'package:bmicalculator/dependencies.dart';
 
 final kLabelTextStyle = GoogleFonts.montserrat(
-  fontSize: 25,
+  fontSize: 22,
   color: Color(0xff8d8e98),
 );
 final kBottomButtonTextStyle = GoogleFonts.montserrat(
-  fontSize: 30,
+  fontSize: 27,
   // //option A
   // color: Color(0xff111328), //option A
   // fontWeight: FontWeight.w500, //option A
@@ -25,7 +25,7 @@ final kNumTextStyle = GoogleFonts.montserrat(
   fontWeight: FontWeight.w800,
 );
 
-const kBottomButtonHeight = 90.0;
+const kBottomButtonHeight = 80.0;
 const kActiveColor = Color(0xff1d1e33);
 const kInactiveColor = Color(0xff111328);
 const kBottomButtonColor = Color(0xffeb1555);

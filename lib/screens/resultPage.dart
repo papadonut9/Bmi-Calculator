@@ -1,11 +1,10 @@
 import 'package:bmicalculator/dependencies.dart';
 
 class ResultPage extends StatelessWidget {
-  
   final String bmi;
   final String message;
   final String interpretation;
-  
+
   ResultPage({
     @required this.bmi,
     @required this.message,
@@ -30,6 +29,8 @@ class ResultPage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Container(
+                padding: EdgeInsets.all(15.0),
+                alignment: Alignment.bottomLeft,
                 child: Text(
                   'Your Result',
                   style: kTitleStyle,

@@ -12,10 +12,9 @@ enum Gender {
 
 class _MainLayoutState extends State<MainLayout> {
   Gender genderSelected;
-  int height = minHeight;
-  String strHeight;
-  int weight = 22;
-  int age = 9;
+  int height = 180;
+  int weight = 60;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {

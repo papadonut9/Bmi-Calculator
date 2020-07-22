@@ -33,3 +33,11 @@
 
 - **v0.3.0_build-7(Beta)**
     - There is no change for this build. I mislabelled the last version. This version was misidentified as ```v0.2.1_build-6```.
+
+- **v0.4.0_build-8(Beta)**
+    - The app was supposed to be in stable for this version, but the calculation is going into some frenzy error. If anyone found the solution, please issue a pull request.
+
+- **v1.0.0_build-9(Stable)**
+    - Finally done with the bug that crashed the app due to duplicate variable creation in ```calculate()``` in ```BMI``` class. 
+    - Improved code refactoring.
+    - A big shoutout to User ```Calamity210 #7999``` in **r/FlutterDev** community's discord server for helping me out with this bug.
